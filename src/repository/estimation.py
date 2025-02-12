@@ -3,6 +3,22 @@ from typing import Protocol
 
 import model
 
+
+#生データ取得
+@dataclass
+class GetRowDataInput:
+	url:model.URL
+
+@dataclass
+class GetRowDataOutput:
+	data:model.Data
+
+
+class RowDataGetter(Protocol):
+    def GetRowData(self, input: GetRowDataInput) -> GetRowDataOutput:
+        ...
+
+
 #クォータニオン推定
 @dataclass
 class EstimationQuaternionInput:
@@ -16,7 +32,6 @@ class EstimationQuaternionOutput:
 class QuaternionEstimator(Protocol):
     def EstimationQuaternion(self, input: EstimationQuaternionInput) -> EstimationQuaternionOutput:
         ...
-        
 
 #移動距離推定
 @dataclass
@@ -30,4 +45,3 @@ class EstimationDistanceOutput:
 class DistanceEstimator(Protocol):
     def EstimationDistance(self, input: EstimationDistanceInput) -> EstimationDistanceOutput:
         ...
-        

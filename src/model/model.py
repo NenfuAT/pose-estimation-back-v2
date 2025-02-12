@@ -1,10 +1,17 @@
 from dataclasses import dataclass
 
+import pandas as pd
+
 
 @dataclass
 class URL:
 	accUrl:str
 	gyroUrl:str
+
+@dataclass
+class Data:
+	acc:pd.DataFrame
+	gyro:pd.DataFrame
 
 @dataclass
 class Quaternion:

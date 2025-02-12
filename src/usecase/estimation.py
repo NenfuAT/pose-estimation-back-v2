@@ -7,7 +7,7 @@ import model
 #クォータニオン推定
 @dataclass
 class EstimationQuaternionInput:
-	data:model.URL
+	url:model.URL
 
 @dataclass
 class EstimationQuaternionOutput:
@@ -22,7 +22,7 @@ class QuaternionEstimator(Protocol):
 #移動距離推定
 @dataclass
 class EstimationDistanceInput:
-	data:model.URL
+	url:model.URL
 
 @dataclass
 class EstimationDistanceOutput:
