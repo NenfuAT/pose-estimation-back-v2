@@ -2,22 +2,41 @@
 
 ## ディレクトリ構造
 ```
-プロジェクト
-├── docker/
-│   └── python/
-│       └── Dockerfile
-├── src/
-│   ├── datastore
-│   ├── interactor
-│   ├── model
-│   ├── repository
-│   ├── router
-│   ├── usecase
-│   └── cmd/
-│       └── main.py <-実行ファイル
-├── .env <-プロジェクト直下に作成
-├── docker-compose.yml
+.
 ├── Makefile
-└── ~省略~
+├── README.md
+├── .env
+├── docker
+│   └── python
+│       └── Dockerfile
+├── docker-compose.yml
+└── src
+    ├── controller
+    │   ├── __init__.py
+    │   └── estimation.py
+    ├── datastore
+    │   ├── __init__.py
+    │   └── rowdata.py
+    ├── factory.py
+    ├── interactor
+    │   ├── __init__.py
+    │   ├── estimation.py
+    │   ├── format.py
+    │   └── response.py
+    ├── lib
+    │   └── requirements.txt
+    ├── main.py
+    ├── model
+    │   ├── __init__.py
+    │   └── model.py
+    ├── repository
+    │   ├── __init__.py
+    │   └── estimation.py
+    ├── router.py
+    └── usecase
+        ├── __init__.py
+        ├── estimation.py
+        ├── format.py
+        └── response.py
 ```
 

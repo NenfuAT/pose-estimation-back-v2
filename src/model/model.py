@@ -27,3 +27,8 @@ class Distance:
 	x:float
 	y:float
 	z:float
+
+@dataclass
+class FileData:
+	fileName:str
+	binary:bytes

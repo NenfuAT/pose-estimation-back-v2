@@ -22,10 +22,6 @@ class RowDataGetter:
                 model.Data(accData,gyroData)
             )
 
-def NewQuaternionEstimator()-> RowDataGetter:
+def NewRowDataGetter()-> RowDataGetter:
     return RowDataGetter()
 
-def assert_protocol(impl: repository.RowDataGetter):
-    pass
-
-assert_protocol(RowDataGetter())  # 型チェックを通過すれば OK

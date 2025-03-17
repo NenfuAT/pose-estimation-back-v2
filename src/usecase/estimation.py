@@ -1,3 +1,5 @@
+#推定に関するユースケース
+
 from dataclasses import dataclass
 from typing import Protocol
 
@@ -7,7 +9,7 @@ import model
 #クォータニオン推定
 @dataclass
 class EstimationQuaternionInput:
-	url:model.URL
+	data:model.Data
 
 @dataclass
 class EstimationQuaternionOutput:
@@ -22,11 +24,12 @@ class QuaternionEstimator(Protocol):
 #移動距離推定
 @dataclass
 class EstimationDistanceInput:
-	url:model.URL
+	data:model.Data
+	quaternions:list[model.Quaternion]
 
 @dataclass
 class EstimationDistanceOutput:
-	distance:list[model.Distance]
+	distances:list[model.Distance]
 
 class DistanceEstimator(Protocol):
     def EstimationDistance(self, input: EstimationDistanceInput) -> EstimationDistanceOutput:

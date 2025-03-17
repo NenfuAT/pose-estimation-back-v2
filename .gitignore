@@ -1,6 +1,12 @@
 .env
+src/__pycache__
 src/router/__pycache__
-src/service/__pycache__
+src/controller/__pycache__
+src/datastore/__pycache__
+src/interactor/__pycache__
+src/model/__pycache__
+src/repository/__pycache__
+src/usecase/__pycache__
 src/download
 src/result
 src/result/result.csv
