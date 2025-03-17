@@ -14,6 +14,12 @@ import usecase
 @dataclass
 class CsvCreator:
     def CreateCsv(self, input: usecase.CreateCsvInput) -> usecase.CreateCsvOutput:
+        """
+        @dataclassのリストから\n
+        csvのバイナリを作成\n
+        ファイル名は@dataclassの型名から自動でつけてます
+        返り値はファイル名とバイナリを持ったmodel.FileData型
+        """
         # データの型を取得
         data_type: Type = type(input.data[0])
         # data_type が dataclass かどうかを確認
@@ -48,6 +54,11 @@ class CsvCreator:
 @dataclass
 class ZipCreator:
     def CreateZip(self, input: usecase.CreateZipInput) -> usecase.CreateZipOutput:
+        """
+        model.FileData型のリストとファイル名から\n
+        zipのバイナリを作成\n
+        返り値はファイル名とバイナリを持ったmodel.FileData型
+        """
         fileDatas = input.data
         fileName = input.zipName if input.zipName.endswith(".zip") else input.zipName + ".zip"
 
@@ -72,6 +83,11 @@ class ZipCreator:
 @dataclass
 class MultipartCreator:
 	def CreateMultipart(self, input: usecase.CreateMultipartInput) -> usecase.CreateMultipartOutput:
+		"""
+        model.FileDataから\n
+        マルチパートフォームデータの作成\n
+        Response型を返す
+        """
 		fileName = input.data.fileName
 		binary = input.data.binary
 		# 拡張子から Content-Type を取得（デフォルトは application/octet-stream）

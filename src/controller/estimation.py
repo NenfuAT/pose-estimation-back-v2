@@ -16,6 +16,10 @@ class EstimationController:
 	mc:usecase.MultipartCreator
 
 	def EstimationQuaternion(self,gyroUrl=str,accUrl=str) -> Response:
+		"""
+		クォータニオンのリクエスト処理を行う\n
+		返り値はfastapi.responsesのResponse型
+		"""
 		url=model.URL(accUrl=accUrl,gyroUrl=gyroUrl)
 		input=usecase.FormatDataInput(url=url)
 		formatData=self.df.FormatData(input=input)
@@ -37,6 +41,10 @@ class EstimationController:
 		return response
 	
 	def EstimationDistance(self,gyroUrl=str,accUrl=str) -> Response:
+		"""
+		移動距離のリクエスト処理を行う\n
+		返り値はfastapi.responsesのResponse型
+		"""
 		url=model.URL(accUrl=accUrl,gyroUrl=gyroUrl)
 		input=usecase.FormatDataInput(url=url)
 		formatData=self.df.FormatData(input=input)
@@ -64,6 +72,10 @@ class EstimationController:
 		return response
 	
 	def EstimationPose(self,gyroUrl=str,accUrl=str) -> Response:
+		"""
+		3次元の動きのリクエスト処理を行う\n
+		返り値はfastapi.responsesのResponse型
+		"""
 		url=model.URL(accUrl=accUrl,gyroUrl=gyroUrl)
 		input=usecase.FormatDataInput(url=url)
 		formatData=self.df.FormatData(input=input)

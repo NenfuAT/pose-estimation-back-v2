@@ -15,6 +15,10 @@ import usecase
 @dataclass
 class QuaternionEstimator:
     def EstimationQuaternion(self, input: usecase.EstimationQuaternionInput) -> usecase.EstimationQuaternionOutput:
+            """
+            センサデータから\n
+            クォータニオンを算出
+            """
             accData=input.data.acc
             gyroData=input.data.gyro
             # サンプリングレートの計算
@@ -48,6 +52,10 @@ assert_protocol(QuaternionEstimator())  # 型チェックを通過すれば OK
 @dataclass
 class DistanceEstimator:
     def EstimationDistance(self,input: usecase.EstimationDistanceInput)->usecase.EstimationDistanceOutput:
+            """
+            センサデータから\n
+            移動距離を算出
+            """
             def butter_lowpass_filter(data, cutoff, fs, order=5):
                 nyquist = 0.5 * fs
                 normal_cutoff = cutoff / nyquist
