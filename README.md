@@ -1,5 +1,5 @@
 # 姿勢推定する蔵バックエンド
-
+pythonが嫌だったのでほぼGoの書き方をしています
 ## ディレクトリ構造
 ```
 .
@@ -14,26 +14,26 @@
     ├── controller
     │   ├── __init__.py
     │   └── estimation.py
-    ├── datastore //
+    ├── datastore 
     │   ├── __init__.py
     │   └── rowdata.py
     ├── factory.py
-    ├── interactor //ビジネスロジックの実装
+    ├── interactor 
     │   ├── __init__.py
     │   ├── estimation.py
     │   ├── format.py
     │   └── response.py
     ├── lib
     │   └── requirements.txt
-    ├── main.py　//エントリーポイント
-    ├── model //全体で使うモデルを定義
+    ├── main.py　
+    ├── model 
     │   ├── __init__.py
     │   └── model.py
     ├── repository
     │   ├── __init__.py
     │   └── estimation.py
-    ├── router.py //エンドポイントを定義
-    └── usecase //データの入出力モデル(インタフェース)を定義
+    ├── router.py 
+    └── usecase 
         ├── __init__.py
         ├── estimation.py
         ├── format.py
@@ -73,3 +73,4 @@ PYTHON_HOST=localhost
 - pythonコンテナに入りたかったら`make py`
 - コンテナのログ見たかったら `make log`
 - コンテナを落としたかったら `make down`
+
