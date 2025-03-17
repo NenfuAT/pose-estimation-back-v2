@@ -19,4 +19,4 @@ RUN pip install --upgrade pip
 RUN pip install -r lib/requirements.txt
 
 # アプリケーションの実行
-#CMD ["python3", "webapi/main.py"]
+CMD ["python3", "main.py"]
