@@ -74,3 +74,110 @@ PYTHON_HOST=localhost
 - コンテナのログ見たかったら `make log`
 - コンテナを落としたかったら `make down`
 
+## API
+### POST:/api/estimation/quaternion
+クォータニオン推定エンドポイント
+<details>
+<summary>request</summary>
+
+```json
+{
+    "gyro_url": "https://minio.kajilab.dev/fishex/2024-11-27%2013%3A46%3A03_gyro.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=hRjq2yhc1WqPrfEV%2F20250317%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250317T135534Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=eb5a9e678f8e123369e5b28fbc21e09f420d44e6b01ec1ff11eb0adf5dc90df6",
+    "acc_url": "https://minio.kajilab.dev/fishex/2024-11-27%2013%3A46%3A03_accg.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=hRjq2yhc1WqPrfEV%2F20250317%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250317T135534Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=358620cd2ae6e3b8cc1a6880ab498747cf6122f81c171876b5fa2bc471d0e8d8"
+}
+```
+
+</details>
+
+<details>
+<summary>response</summary>
+
+#### 成功
+
+##### Status : 200
+
+```multipart
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="quaternion.csv"
+Content-Type: text/csv
+
+time,w,x,y,z
+1732682789608,1.0,0.0,0.0,0.0
+1732682789612,1.0,0.0,0.0,0.0
+1732682789685,0.9999984415197393,-0.0017625867187168042,4.0452861154573335e-05,-9.278856322853723e-05
+1732682789765,0.9999983684225384,-0.001804960545840035,-3.986111085309677e-05,-6.066944078751021e-05
+1732682789769,0.9999982866053957,-0.001846596284265677,-0.00012670167718828413,-2.855032279316817e-05
+~~省略~~
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+```
+</details>
+
+### POST:/api/estimation/distance
+距離推定エンドポイント
+<details>
+<summary>request</summary>
+
+```json
+{
+    "gyro_url": "https://minio.kajilab.dev/fishex/2024-11-27%2013%3A46%3A03_gyro.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=hRjq2yhc1WqPrfEV%2F20250317%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250317T135534Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=eb5a9e678f8e123369e5b28fbc21e09f420d44e6b01ec1ff11eb0adf5dc90df6",
+    "acc_url": "https://minio.kajilab.dev/fishex/2024-11-27%2013%3A46%3A03_accg.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=hRjq2yhc1WqPrfEV%2F20250317%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250317T135534Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=358620cd2ae6e3b8cc1a6880ab498747cf6122f81c171876b5fa2bc471d0e8d8"
+}
+```
+
+</details>
+
+<details>
+<summary>response</summary>
+
+#### 成功
+
+##### Status : 200
+
+```multipart
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="distance.csv"
+Content-Type: text/csv
+
+
+~~省略~~
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+```
+</details>
+
+### POST:/api/estimation/pose
+可視化用データ返却エンドポイント
+<details>
+<summary>request</summary>
+
+```json
+{
+    "gyro_url": "https://minio.kajilab.dev/fishex/2024-11-27%2013%3A46%3A03_gyro.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=hRjq2yhc1WqPrfEV%2F20250317%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250317T135534Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=eb5a9e678f8e123369e5b28fbc21e09f420d44e6b01ec1ff11eb0adf5dc90df6",
+    "acc_url": "https://minio.kajilab.dev/fishex/2024-11-27%2013%3A46%3A03_accg.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=hRjq2yhc1WqPrfEV%2F20250317%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250317T135534Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=358620cd2ae6e3b8cc1a6880ab498747cf6122f81c171876b5fa2bc471d0e8d8"
+}
+```
+
+</details>
+
+<details>
+<summary>response</summary>
+
+#### 成功
+
+##### Status : 200
+
+```multipart
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="result.zip"
+Content-Type: application/zip
+
+
+~~省略~~
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+```
+</details>
